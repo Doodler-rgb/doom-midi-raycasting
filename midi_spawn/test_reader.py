@@ -1,5 +1,7 @@
 import mido
 
+spwn_rate = 110 # seuil de vélocité pour considérer un événement comme un spawn
+elapsed_time = 0
 # chemin relatif vers ton fichier MIDI
 midi_file = "assets/music/musique1.mid"
 
@@ -13,8 +15,20 @@ print(f" - Nombre de pistes : {len(mid.tracks)}")
 # lire les événements
 for i, track in enumerate(mid.tracks):
     print(f"\n--- Piste {i} ---")
+    spawns = []
     for msg in track:
-        print(msg)
+      
+      elapsed_time += msg.time
+      if msg.type == "note_on" and msg.velocity > spwn_rate:
+          spawns.append({
+          "time": elapsed_time,
+          "note": msg.note,
+          "velocity": msg.velocity
+          })
+          # traiter comme un spawn
+      print(msg)
+    print("================================== ===============================")
+    print(spawns)    
 
 '''Ce code parcourt toutes les pistes MIDI contenues dans l’objet mid.tracks. 
 La fonction Python enumerate est utilisée pour obtenir à la fois l’indice de la piste (i) et l’objet piste lui-même (track).
