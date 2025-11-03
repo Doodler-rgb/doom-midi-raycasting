@@ -5,6 +5,15 @@ elapsed_time = 0
 # chemin relatif vers ton fichier MIDI
 midi_file = "assets/music/musique1.mid"
 
+def note_to_enemy(note, velocity):
+    # Exemple de mappage simple
+    if  note< 50:
+        return "Goblin"
+    elif note < 72 and note >= 50:
+        return "Orc"
+    else:
+        return "Dragon"
+
 # charger le fichier
 mid = mido.MidiFile(midi_file)
 
