@@ -10,4 +10,3 @@ pygame.mixer.music.load(file_path)
 pygame.mixer.music.play()
 
 
-##papa est super cool et gentil##

@@ -2,7 +2,7 @@ import mido
 
 spwn_rate = 110 # seuil de vélocité pour considérer un événement comme un spawn
 elapsed_time = 0
-# chemin relatif vers ton fichier MIDI
+# chemin relatif vers le fichier MIDI
 midi_file = "assets/music/musique1.mid"
 
 def note_to_enemy(note):
