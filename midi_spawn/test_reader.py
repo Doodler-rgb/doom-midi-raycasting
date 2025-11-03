@@ -23,7 +23,6 @@ print(f" - Nombre de pistes : {len(mid.tracks)}")
 
 # lire les événements
 for i, track in enumerate(mid.tracks):
-    print(f"\n--- Piste {i} ---")
     spawns = []
     for msg in track:
       
