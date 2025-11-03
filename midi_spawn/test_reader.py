@@ -5,7 +5,7 @@ elapsed_time = 0
 # chemin relatif vers ton fichier MIDI
 midi_file = "assets/music/musique1.mid"
 
-def note_to_enemy(note, velocity):
+def note_to_enemy(note):
     # Exemple de mappage simple
     if  note< 50:
         return "Goblin"
@@ -37,13 +37,10 @@ for i, track in enumerate(mid.tracks):
           # traiter comme un spawn
       print(msg)
     print("================================== ===============================")
-    print(spawns)    
+    print(spawns)
+    for event in spawns:
+        enemy = note_to_enemy(event["note"])
+        print(f"Spawn {enemy} à {event['time']} ticks (note: {event['note']}, vélocité: {event['velocity']})")    
 
-'''Ce code parcourt toutes les pistes MIDI contenues dans l’objet mid.tracks. 
-La fonction Python enumerate est utilisée pour obtenir à la fois l’indice de la piste (i) et l’objet piste lui-même (track).
- À chaque itération, le code affiche un séparateur indiquant le numéro de la piste,
- puis parcourt tous les messages MIDI de cette piste.
 
-La boucle interne for msg in track: affiche chaque message MIDI contenu dans la piste courante.
- Cela permet d’examiner le contenu de chaque piste, message par message,
-   ce qui est utile pour déboguer ou analyser la structure d’un fichier MIDI.'''
+
