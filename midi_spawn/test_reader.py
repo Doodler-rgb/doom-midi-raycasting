@@ -17,9 +17,7 @@ def note_to_enemy(note):
 # charger le fichier
 mid = mido.MidiFile(midi_file)
 
-print("Infos MIDI :")
-print(f" - Ticks par battement : {mid.ticks_per_beat}")
-print(f" - Nombre de pistes : {len(mid.tracks)}")
+
 
 # lire les événements
 for i, track in enumerate(mid.tracks):
