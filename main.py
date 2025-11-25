@@ -4,6 +4,9 @@ import mido
 
 from midi_spawn.test_reader import load_spawns
 
+spawns = load_spawns("assets/music/musique1.mid")
+print(spawns)
+
 file_path = "assets/music/musique1.mid"
 
 startTime = time.time()
